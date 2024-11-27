@@ -63,16 +63,28 @@ namespace HojoringSupportTool
 
                 string text = "";
 
-                // Action
-                var sheet_a = lumina.GetExcelSheet<Lumina.Excel.Sheets.Action>();
-                if (sheet_a != null)
+                // AttackType
+                var sheet_at = lumina.GetExcelSheet<Lumina.Excel.Sheets.AttackType>();
+                if (sheet_at != null)
                 {
-                    text = "key,0,1\n#,Name,AttackType\nint32,str,int32\n";
-                    foreach (var item in sheet_a)
+                    // Action
+                    var sheet_a = lumina.GetExcelSheet<Lumina.Excel.Sheets.Action>();
+                    if (sheet_a != null)
                     {
-                        text += item.RowId + ",\"" + item.Name.ToString() + "\"," + item.AttackType.RowId + "\n";
+                        text = "key,0,1\n#,Name,AttackType\nint32,str,int32\n";
+                        foreach (var item in sheet_a)
+                        {
+                            if (item.AttackType.RowId > 0 && item.AttackType.RowId < 9)
+                            {
+                                text += item.RowId + ",\"" + item.Name.ToString() + "\"," + sheet_at.GetRow(item.AttackType.RowId).Name.ExtractText() + "\n";
+                            }
+                            else
+                            {
+                                text += item.RowId + ",\"" + item.Name.ToString() + "\",\n";
+                            }
+                        }
+                        File.WriteAllText(@"Action" + ext, text, System.Text.Encoding.UTF8);
                     }
-                    File.WriteAllText(@"Action" + ext, text, System.Text.Encoding.UTF8);
                 }
 
                 // Status
@@ -106,7 +118,7 @@ namespace HojoringSupportTool
                     File.WriteAllText(@"TerritoryType" + ext, text, System.Text.Encoding.UTF8);
                 }
 
-                MessageBox.Show("finished.");
+                //MessageBox.Show("finished.");
             } catch
             {
 
