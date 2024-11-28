@@ -76,7 +76,7 @@ namespace HojoringSupportTool
                         {
                             if (item.AttackType.RowId > 0 && item.AttackType.RowId < 9)
                             {
-                                text += item.RowId + ",\"" + item.Name.ToString() + "\"," + sheet_at.GetRow(item.AttackType.RowId).Name.ExtractText() + "\n";
+                                text += item.RowId + ",\"" + item.Name.ToString() + "\"," + sheet_at.GetRow(item.AttackType.RowId).Name.ExtractText() + "," + item.Recast100ms.ToString() + "\n";
                             }
                             else
                             {
