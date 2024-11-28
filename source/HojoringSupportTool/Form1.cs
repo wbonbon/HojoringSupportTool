@@ -71,12 +71,12 @@ namespace HojoringSupportTool
                     var sheet_a = lumina.GetExcelSheet<Lumina.Excel.Sheets.Action>();
                     if (sheet_a != null)
                     {
-                        text = "key,0,1\n#,Name,AttackType\nint32,str,int32\n";
+                        text = "key,0,1,2\n#,Name,AttackType,Recast100ms\nint32,str,int32,int32\n";
                         foreach (var item in sheet_a)
                         {
                             if (item.AttackType.RowId > 0 && item.AttackType.RowId < 9)
                             {
-                                text += item.RowId + ",\"" + item.Name.ToString() + "\"," + sheet_at.GetRow(item.AttackType.RowId).Name.ExtractText() + "\n";
+                                text += item.RowId + ",\"" + item.Name.ToString() + "\"," + sheet_at.GetRow(item.AttackType.RowId).Name.ExtractText() + "," + item.Recast100ms.ToString() + "\n";
                             }
                             else
                             {
