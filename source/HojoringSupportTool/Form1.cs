@@ -76,11 +76,11 @@ namespace HojoringSupportTool
                         {
                             if (item.AttackType.RowId > 0 && item.AttackType.RowId < 9)
                             {
-                                text += item.RowId + ",\"" + item.Name.ToString() + "\"," + sheet_at.GetRow(item.AttackType.RowId).Name.ExtractText() + "," + item.Recast100ms.ToString() + "\n";
+                                text += item.RowId + ",\"" + item.Name.ToString() + "\"," + sheet_at.GetRow(item.AttackType.RowId).Name.ExtractText() + "," + item.Recast100ms.ToString() + ",\n";
                             }
                             else
                             {
-                                text += item.RowId + ",\"" + item.Name.ToString() + "\",\n";
+                                text += item.RowId + ",\"" + item.Name.ToString() + "\",," + item.Recast100ms.ToString() + ",\n";
                             }
                         }
                         File.WriteAllText(@"Action" + ext, text, System.Text.Encoding.UTF8);
