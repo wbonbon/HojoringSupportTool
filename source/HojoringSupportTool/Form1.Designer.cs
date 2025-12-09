@@ -39,6 +39,7 @@
             radioButton6 = new RadioButton();
             groupBox1 = new GroupBox();
             radioButton7 = new RadioButton();
+            radioButton8 = new RadioButton();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(514, 73);
+            button1.Location = new Point(552, 75);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 2;
@@ -138,6 +139,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(radioButton8);
             groupBox1.Controls.Add(radioButton7);
             groupBox1.Controls.Add(radioButton6);
             groupBox1.Controls.Add(radioButton5);
@@ -147,7 +149,7 @@
             groupBox1.Controls.Add(radioButton1);
             groupBox1.Location = new Point(121, 49);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(362, 66);
+            groupBox1.Size = new Size(413, 64);
             groupBox1.TabIndex = 9;
             groupBox1.TabStop = false;
             groupBox1.Text = "Language";
@@ -163,11 +165,22 @@
             radioButton7.Text = "cn-t";
             radioButton7.UseVisualStyleBackColor = true;
             // 
+            // radioButton8
+            // 
+            radioButton8.AutoSize = true;
+            radioButton8.Location = new Point(347, 26);
+            radioButton8.Name = "radioButton8";
+            radioButton8.Size = new Size(35, 19);
+            radioButton8.TabIndex = 10;
+            radioButton8.TabStop = true;
+            radioButton8.Text = "tc";
+            radioButton8.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(771, 132);
+            ClientSize = new Size(710, 145);
             Controls.Add(groupBox1);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -196,5 +209,6 @@
         private RadioButton radioButton6;
         private GroupBox groupBox1;
         private RadioButton radioButton7;
+        private RadioButton radioButton8;
     }
 }

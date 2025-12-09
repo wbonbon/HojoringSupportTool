@@ -56,6 +56,11 @@ namespace HojoringSupportTool
                     options.DefaultExcelLanguage = Language.ChineseTraditional;
                     ext = ".zh-CN.csv";
                 }
+                if (radioButton8.Checked)
+                {
+                    options.DefaultExcelLanguage = Language.ChineseTraditional2;
+                    ext = ".zh-TW.csv";
+                }
                 options.LoadMultithreaded = true;
 
                 var lumina = new Lumina.GameData(GameDataPath.Text, options);
