@@ -58,8 +58,8 @@ namespace HojoringSupportTool
                 }
                 if (radioButton8.Checked)
                 {
-                    options.DefaultExcelLanguage = Language.ChineseTraditional2;
-                    ext = ".zh-TW.csv";
+                    //options.DefaultExcelLanguage = Language.ChineseTraditional2;
+                    //ext = ".zh-TW.csv";
                 }
                 options.LoadMultithreaded = true;
 
@@ -111,22 +111,29 @@ namespace HojoringSupportTool
                     text = "key,0,1,2\n#,TerritoryIntendedUse,Resident,ContentFinderCondition\nint32,TerritoryIntendedUse,uint16,ContentFinderCondition\n";
                     foreach (var item in sheet_t)
                     {
-                        ContentFinderCondition cfc = item.ContentFinderCondition.Value;
-                        RowRef<TerritoryType> territory = cfc.TerritoryType;
-                        RowRef<TerritoryIntendedUse> intendedUse = item.TerritoryIntendedUse;
-                        
-                        if (territory.IsValid && !cfc.Name.IsEmpty)
+                        try
                         {
-                            text += item.RowId + ",\"" + intendedUse.RowId + "\",\"" + item.Resident + "\",\"" + cfc.Name.ToString() + "\"\n";
+                            ContentFinderCondition cfc = item.ContentFinderCondition.Value;
+                            RowRef<TerritoryType> territory = cfc.TerritoryType;
+                            RowRef<TerritoryIntendedUse> intendedUse = item.TerritoryIntendedUse;
+
+                            if (territory.IsValid && !cfc.Name.IsEmpty)
+                            {
+                                text += item.RowId + ",\"" + intendedUse.RowId + "\",\"" + item.Resident + "\",\"" + cfc.Name.ToString() + "\"\n";
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine(ex.ToString());
                         }
                     }
                     File.WriteAllText(@"TerritoryType" + ext, text, System.Text.Encoding.UTF8);
                 }
 
                 //MessageBox.Show("finished.");
-            } catch
+            } catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
 
             button1.Enabled = true;
