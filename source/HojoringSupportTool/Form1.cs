@@ -58,8 +58,8 @@ namespace HojoringSupportTool
                 }
                 if (radioButton8.Checked)
                 {
-                    //options.DefaultExcelLanguage = Language.ChineseTraditional2;
-                    //ext = ".zh-TW.csv";
+                    options.DefaultExcelLanguage = Language.TraditionalChinese;
+                    ext = ".zh-TW.csv";
                 }
                 options.LoadMultithreaded = true;
 
